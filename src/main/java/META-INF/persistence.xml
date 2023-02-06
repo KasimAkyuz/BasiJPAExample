@@ -1,32 +1,37 @@
 <?xml version="1.0"?>
 
-<persistence version="2.1" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/persistence">
+<persistence version="2.1"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence">
 
 
-<persistence-unit name="MyPersistenceUnit">
+	<persistence-unit name="MyPersistenceUnit"
+		transaction-type="RESOURCE_LOCAL">
 
-<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		
+		<class>com.akyuz.pojo.Personel</class>
+		
+		<properties>
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
 
-<class>com.akyuz.dbBasic.Data</class>
-<class>com.akyuz.Inventory.Test</class>
-<class>com.akyuz.human.entity.Empoloee</class>
-<class>com.akyuz.human.entity.Department</class>
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/jpadb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Turkey" />
+
+			<property name="javax.persistence.jdbc.user" value="root" />
+
+			<property name="javax.persistence.jdbc.password"
+				value="Adana01010101" />
+
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="current_session_context_class" value="thread"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
 
 
-<properties>
+		</properties>
 
-	<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-	
-	<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpadb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Turkey"/>
-	
-	<property name="javax.persistence.jdbc.user" value="root"/>
-	
-	<property name="javax.persistence.jdbc.password" value="Adana01010101"/>
-	
-	<property name="javax.persistence.schema-generation.database.action" value="update"/>
-	
-	</properties>
-	
 	</persistence-unit>
 
 </persistence>

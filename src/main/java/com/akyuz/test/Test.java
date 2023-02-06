@@ -1,26 +1,27 @@
-package com.akyuz.Inventory.Test;
+package com.akyuz.test;
+
+import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.transaction.Transaction;
 
-import com.akyuz.Inventory.Entity.Product;
+import com.akyuz.pojo.Personel;
 
-public class ProductRemove {
+public class Test {
 
 	public static void main(String[] args) {
+		
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("MyPersistenceUnit");
 		EntityManager manager = factory.createEntityManager();
 		
-		long productId=2L;
 		
-		manager.getTransaction().begin();	
-		Product product = manager.getReference(Product.class, productId);
 		
-		manager.remove(product);		
-		manager.getTransaction().commit();
-		manager.close();
-
+		
+		
+		
+		
 	}
 
 }
