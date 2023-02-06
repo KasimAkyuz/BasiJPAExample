@@ -1,31 +1,32 @@
 package com.akyuz.test;
 
-import java.util.Date;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import com.akyuz.pojo.Personel;
 
-public class PersistTest {
+
+
+public class UpdateTest {
 
 	public static void main(String[] args) {
 		
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("MyPersistenceUnit");
 		EntityManager manager = factory.createEntityManager();
 		
-		Personel personel1 = new Personel("mert","beyaz", new Date(),"11115");
-		
+		Personel personel= manager.find(Personel.class, 1);
+		personel.setLastName("kara");
 		
 		manager.getTransaction().begin();
-		
-		manager.persist(personel1);
-		
+		manager.merge(personel);
 		manager.getTransaction().commit();
 		
-		manager.close();
-
+		
+		
+		
+		
+		
 	}
 
 }
